@@ -1,0 +1,134 @@
+
+<!-- 
+
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.mySlides {display:none}
+.w3-left, .w3-right, .w3-badge {cursor:pointer}
+.w3-badge {height:13px;width:13px;padding:0}
+</style>
+<body>
+
+<div class="w3-container">
+  <h2>Slideshow Indicators</h2>
+  <p>An example of using buttons to indicate how many slides there are in the slideshow, and which slide the user is currently viewing.</p>
+</div>
+
+<div class="w3-content w3-display-container" style="max-width:800px">
+  <img class="mySlides" src="img_nature_wide.jpg" style="width:100%">
+  <img class="mySlides" src="img_snow_wide.jpg" style="width:100%">
+  <img class="mySlides" src="img_mountains_wide.jpg" style="width:100%">
+  <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+    <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+    <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+  </div>
+</div>
+
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" w3-white", "");
+  }
+  x[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " w3-white";
+}
+</script>
+
+</body>
+</html> 
+
+
+
+
+
+
+ -->
+
+
+
+
+
+
+
+
+<section class="hero py-16">
+    <div class="container mx-auto flex items-center justify-between">
+        <div class="w-1/2">
+            <h6 class="text-lg"><em>Wanna Cook?</em></h6>
+            <h1 class="text-3xl md:text-6xl font-bold">Don't wait !</h1>
+
+            <a href="#down-half">     <button class="px-6 py-2 rounded-full text-white font-bold mt-4 btn-primary">Order Now</button>
+            </a>
+
+
+   
+        </div>
+        <div class="w-1/2">
+            <img src="/img/MainImage1.png" alt="">
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+<section class="menu container mx-auto py-8" id="down-half">
+
+
+
+    <div class="wrapper">
+        <marquee behavior="alternate"><span class="marquee"> <h1 class="text-xl font-bold mb-8" >All Groceries on a click!!</h1></span></marquee>
+        </div>
+
+    <h1 class="text-xl font-bold mb-8">All Groceries</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 col-gap-12 row-gap-16">
+        <% pizzas.forEach(function(pizza) { %>
+        <div class="w-full md:w-64">
+            <img class="h-40 mb-4 mx-auto home-images" src="/img/<%= pizza.image %>" alt="">
+            <div class="text-center">
+                <h2 class="mb-4 text-lg"><%= pizza.name %></h2>
+                <span class="size py-1 px-4 rounded-full uppercase text-xs"><%= pizza.size%></span>
+              
+                
+        
+              
+                <div class="flex items-center justify-around mt-6">
+                    <span class="font-bold text-lg">₹<%= pizza.price %></span>
+                    <button data-pizza="<%= JSON.stringify(pizza) %>"
+                        class="add-to-cart py-1 px-6 rounded-full flex items-center font-bold">
+                        <span>+</span>
+                        <span class="ml-4">Add</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+
+    </div>
+</section>
